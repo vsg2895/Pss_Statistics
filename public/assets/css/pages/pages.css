@@ -1,0 +1,15 @@
+.footer-text {
+    font-size: 1rem;
+}
+
+.page-content {
+    /*min-height: 300px;*/
+    /*//height = 100 virtual height - header height - footer height*/
+    height: calc(100vh - 258px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.big-h1 {
+    font-size: 72px
+}

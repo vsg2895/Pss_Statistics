@@ -1,0 +1,254 @@
+/*fade in/out*/
+.elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear forwards infinite;
+    animation: fadeinout 2s linear forwards infinite;
+}
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+/*fade in/out*/
+
+/*aunt animation*/
+:root {
+    --trunk-brown: #A07F65;
+    --sky-blue: #9CE6FC;
+    --ant-color: black;
+    --leaf-color: #8ABD29;
+}
+
+.box-canvas{
+    position: relative;
+    margin: 0;
+    display: block;
+    width: 100%;
+    min-width: 300px;
+    height:45px;
+    overflow: hidden;
+}
+
+.scene-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: antMarch 60s infinite linear;
+}
+
+/* Slow down the animation when the ants have to travel further */
+/*@media only screen and (min-width: 600px) {
+    .scene-wrapper {
+        animation: antMarch 10s infinite linear;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .scene-wrapper {
+        animation: antMarch 13s infinite linear;
+    }
+}*/
+
+@keyframes antMarch {
+    0% {
+        transform: translateX(300px);
+    }
+
+    10% {
+        transform: translateX(200px);
+    }
+
+    40%, 100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes antMarchaacasdc {
+    20%, 100% {
+        opacity: 0;
+        transform: translate(200px, 0);
+    }
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+}
+
+/* Convenience class to wrap all ant elements */
+.ant-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.ant-wrapper.one {
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.ant-wrapper.two {
+    left: calc(100% - 150px);
+    transform: translateX(-100%);
+}
+
+.ant-wrapper.three {
+    left: calc(100% - 300px);
+    transform: translateX(-100%);
+}
+
+/* Head */
+.body-left {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--ant-color);
+    border-radius: 50%;
+    bottom: 17px;
+    right: 60px;
+}
+
+/* Feeler left */
+.body-left::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    height: 10px;
+    width: 5px;
+    border: 1px solid var(--ant-color);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 40%;
+}
+
+/* Feeler left */
+.body-left::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    height: 10px;
+    width: 5px;
+    border: 1px solid var(--ant-color);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 40%;
+}
+
+.body-middle {
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    background: var(--ant-color);
+    border-radius: 50%;
+    width: 25px;
+    height: 20px;
+}
+
+/* Middle leg */
+.body-middle::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 10px;
+    height: 15px;
+    width: 15px;
+    border: 2px solid var(--ant-color);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: middleLegMove 0.25s infinite;
+}
+
+@keyframes middleLegMove {
+    0% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Front leg */
+.body-middle::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: -15px;
+    height: 15px;
+    width: 15px;
+    border: 2px solid var(--ant-color);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-radius: 40%;
+    transform: rotate(20deg);
+    animation: frontLegMove 0.25s infinite;
+}
+
+@keyframes frontLegMove {
+    0% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(20deg) translateY(-5px);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+.body-right {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    width: 30px;
+    height: 20px;
+    background: var(--ant-color);
+    border-radius: 50%;
+    transform: rotate(-10deg);
+}
+
+/* Back leg */
+.body-right::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    height: 20px;
+    width: 25px;
+    border: 2px solid var(--ant-color);
+    border-left: none;
+    border-bottom: none;
+    transform: skew(0deg, -40deg) rotate(25deg);
+    animation: backLegMove 0.25s infinite;
+}
+
+@keyframes backLegMove {
+    0% {
+        transform: skew(0deg, -40deg) rotate(25deg);
+    }
+
+    50% {
+        transform: skew(0deg, -40deg) rotate(25deg) translateY(-3px);
+    }
+
+    100% {
+        transform: skew(0deg, -40deg) rotate(25deg);
+    }
+}
+/*/aunt animation*/

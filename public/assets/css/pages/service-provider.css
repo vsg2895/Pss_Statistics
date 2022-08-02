@@ -1,0 +1,27 @@
+input[type="file"] {
+    display: none;
+}
+
+.embed-block {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    border-radius: 25px;
+    max-height: 15rem;
+}
+
+.delete-provider-media,
+.delete-provider-media-all {
+    font-size: 19px;
+    color: red;
+    position: absolute;
+    top: 4%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.embed-video {
+    width: 90%;
+    max-height: 80%;
+}
